@@ -1,3 +1,4 @@
+import 'package:flight_app_ui/screens/home_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -53,6 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   GestureDetector(
                     onTap: (){
                       FocusManager.instance.primaryFocus?.unfocus();
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const HomeScreen()));
                     },
                     child: Container(
                       height: 50,
@@ -80,17 +82,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-
-
-
-
-
-
-
                 ],
               ),
             ),
-           
+
             Positioned(
               bottom: 0,
                 child: Transform.rotate(
