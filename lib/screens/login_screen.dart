@@ -1,39 +1,101 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-class LoginScreen extends StatelessWidget {
+
+import '../widgets/feild.dart';
+import '../widgets/text.dart';
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController _emailController=TextEditingController();
+  TextEditingController _passwordController=TextEditingController();
+
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: SingleChildScrollView(
+        child: Stack(
           children: [
-            Center(
-              child: Hero(
-                tag: "logo",
-                child: SizedBox(
-                height: 130,
-                width: 130,
-                child: Image.asset("assets/logo.png",color: Theme.of(context).indicatorColor,)),
+            Container(
+              height: MediaQuery.of(context).size.height,
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Hero(
+                      tag: "logo",
+                      child: SizedBox(
+                      height: 130,
+                      width: 130,
+                      child: Image.asset("assets/logo.png",color: Theme.of(context).indicatorColor,)),
+                    ),
+                  ),
+                  Field(controller: _emailController, hinttext: "E-MAIL", icon: Icons.alternate_email,),
+                 const  SizedBox(height: 20,),
+                  Field(controller: _passwordController, hinttext: "PASSWORD", icon: Icons.lock,),
+                  const  SizedBox(height: 25,),
+                  Center(child: TextUtil(text: "Forget Password?",weight: true,size: 14,)),
+                  const  SizedBox(height: 25,),
+                  GestureDetector(
+                    onTap: (){
+                      FocusManager.instance.primaryFocus?.unfocus();
+                    },
+                    child: Container(
+                      height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).indicatorColor,
+                        borderRadius: BorderRadius.circular(15)
+                      ),
+                      alignment: Alignment.center,
+                      child: TextUtil(text: "Log in",weight: true,color: Theme.of(context).primaryColor,size: 16,),
+                    ),
+                  ),
+                  const  SizedBox(height: 25,),
+                  RichText(
+                    text: TextSpan(
+                      text: 'Not a member? ',
+                      style:  TextStyle(color: Theme.of(context).canvasColor,fontSize: 14),
+                      children:  <TextSpan>[
+                        TextSpan(text: 'Join now', style: TextStyle(fontWeight: FontWeight.bold,color: Theme.of(context).indicatorColor),recognizer: TapGestureRecognizer()..onTap=(){
+
+
+                        },
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+
+
+
+
+
+
+                ],
               ),
             ),
-            TextFormField(
-              decoration: InputDecoration(
-                enabledBorder:  UnderlineInputBorder(
-
-                  borderSide:  BorderSide(color: Theme.of(context).canvasColor, width: 2.0),
-                ),
-
-
-              ),
-            ),
-
-            Spacer(),
-
-
+           
+            Positioned(
+              bottom: 0,
+                child: Transform.rotate(
+                    angle: 6,
+                    child:const Icon(Icons.flight_takeoff,size: 100,color: Color(0xff3a5455),))),
 
           ],
         ),

@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor:const  Color(0xff415a5c),
         indicatorColor:const  Color(0xffffcfa1),
-        canvasColor: const Color(0xff597672),
+        canvasColor:const  Color(0xff9dafb1)
+        //canvasColor: const Color(0xff597672),
 
       ),
       home: SplashScreen(),
