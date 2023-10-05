@@ -1,6 +1,8 @@
 import 'package:flight_app_ui/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
+
 void main(){
+
   runApp(MyApp());
 
 }

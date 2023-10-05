@@ -3,7 +3,10 @@ import 'package:flight_app_ui/widgets/text.dart';
 import 'package:flutter/material.dart';
 class FlightCard extends StatelessWidget {
   FlightItem data;
-   FlightCard({super.key,required this.data});
+  int index;
+
+
+   FlightCard({super.key,required this.data,required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -99,9 +102,12 @@ class FlightCard extends StatelessWidget {
 
             child: Column(
               children: [
-                Transform.rotate(
-                    angle: 6,
-                    child: Icon(Icons.flight_takeoff,size: 25,color: Theme.of(context).indicatorColor,)),
+                Hero(
+                  tag: "hero$index",
+                  child: Transform.rotate(
+                      angle: 6,
+                      child: Icon(Icons.flight_takeoff,size: 25,color: Theme.of(context).indicatorColor,)),
+                ),
                 const  SizedBox(height: 5,),
                 TextUtil(text: data.duration,color: Colors.white,size:11,weight: true,)
 

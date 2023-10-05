@@ -1,3 +1,4 @@
+import 'package:flight_app_ui/screens/detail_screen.dart';
 import 'package:flight_app_ui/widgets/show_up_animation.dart';
 import 'package:flight_app_ui/widgets/text.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+
         elevation: 0,
         leading: Icon(Icons.account_tree,color: Theme.of(context).primaryColor,),
         actions: [
@@ -55,9 +57,9 @@ class HomeScreen extends StatelessWidget {
                   delay: 150*index,
                     child: GestureDetector(
                       onTap: (){
-                        
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailScreen(data: flightList[index],index: index,)));
                       },
-                        child: FlightCard(data:flightList[index],)));
+                        child: FlightCard(data:flightList[index],index: index,)));
               }),
 
             ),
