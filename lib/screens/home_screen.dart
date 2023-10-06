@@ -14,10 +14,18 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        title:  Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextUtil(text: "Welcome Back!",color: Theme.of(context).primaryColor,size: 12,weight: true,),
+            TextUtil(text: "Dev_73arner",color: Theme.of(context).primaryColor,),
+          ],
+        ),
 
         elevation: 0,
         leading: Icon(Icons.account_tree,color: Theme.of(context).primaryColor,),
         actions: [
+
           Container(
             height: 50,
             width: 50,
