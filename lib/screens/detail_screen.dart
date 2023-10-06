@@ -123,94 +123,97 @@ class DetailScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 Container(
-                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                   child: Column(
-                     children: [
-                       Padding(
-                         padding: const EdgeInsets.only(bottom: 10),
-                         child: Row(
-                           crossAxisAlignment: CrossAxisAlignment.start,
+                 ShowUpAnimation(
+                   delay: 200,
+                   child: Container(
+                     padding: const EdgeInsets.symmetric(horizontal: 20),
+                     child: Column(
+                       children: [
+                         Padding(
+                           padding: const EdgeInsets.only(bottom: 10),
+                           child: Row(
+                             crossAxisAlignment: CrossAxisAlignment.start,
+                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                             children: [
+                               Column(
+
+                                 children: [
+                                   SizedBox(
+                                       height: 70,
+                                       width: 70,
+                                       child: Image.asset("assets/logo.png",color: Theme.of(context).primaryColor,)),
+
+                                   Icon(Icons.flight_takeoff,size: 35,color: Theme.of(context).indicatorColor,),
+                                   const  SizedBox(height: 10,),
+                                   TextUtil(text: "Total Price",size: 12,),
+                                   TextUtil(text: "\$ ${data.price}",size: 22,weight: true,color: Theme.of(context).primaryColor,),
+
+
+                                 ],
+                               ),
+                               Transform.rotate(
+                                 angle: 0.3,
+                                 child: SizedBox(
+                                   height: 150,
+                                   width: 200,
+                                   child: Image.asset("assets/world.png",color: Theme.of(context).primaryColor,),
+                                 ),
+                               ),
+
+                             ],
+                           ),
+                         ),
+                         const  Divider(),
+                         const  SizedBox(height: 10,),
+                         Row(
                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                            children: [
                              Column(
-
                                children: [
-                                 SizedBox(
-                                     height: 70,
-                                     width: 70,
-                                     child: Image.asset("assets/logo.png",color: Theme.of(context).primaryColor,)),
-
-                                 Icon(Icons.flight_takeoff,size: 35,color: Theme.of(context).indicatorColor,),
-                                 const  SizedBox(height: 10,),
-                                 TextUtil(text: "Total Price",size: 12,),
-                                 TextUtil(text: "\$ ${data.price}",size: 22,weight: true,color: Theme.of(context).primaryColor,),
-
-
+                                 TextUtil(text: "FLIGHT DATE",size: 12,),
+                                 TextUtil(text:data.date,size: 15,weight: true,color: Theme.of(context).primaryColor,),
                                ],
                              ),
-                             Transform.rotate(
-                               angle: 0.3,
-                               child: SizedBox(
-                                 height: 150,
-                                 width: 200,
-                                 child: Image.asset("assets/world.png",color: Theme.of(context).primaryColor,),
-                               ),
+                             Column(
+                               children: [
+                                 TextUtil(text: "GATE",size: 12,),
+                                 TextUtil(text:data.gate,size: 15,weight: true,color: Theme.of(context).primaryColor,),
+                               ],
                              ),
-
+                             Column(
+                               children: [
+                                 TextUtil(text: "FLIGHT NO",size: 12,),
+                                 TextUtil(text:data.flightNo,size: 15,weight: true,color: Theme.of(context).primaryColor,),
+                               ],
+                             )
                            ],
                          ),
-                       ),
-                       const  Divider(),
-                       const  SizedBox(height: 10,),
-                       Row(
-                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                         children: [
-                           Column(
-                             children: [
-                               TextUtil(text: "FLIGHT DATE",size: 12,),
-                               TextUtil(text:data.date,size: 15,weight: true,color: Theme.of(context).primaryColor,),
-                             ],
-                           ),
-                           Column(
-                             children: [
-                               TextUtil(text: "GATE",size: 12,),
-                               TextUtil(text:data.gate,size: 15,weight: true,color: Theme.of(context).primaryColor,),
-                             ],
-                           ),
-                           Column(
-                             children: [
-                               TextUtil(text: "FLIGHT NO",size: 12,),
-                               TextUtil(text:data.flightNo,size: 15,weight: true,color: Theme.of(context).primaryColor,),
-                             ],
-                           )
-                         ],
-                       ),
-                       const   SizedBox(height: 20,),
-                       Row(
-                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                         children: [
-                           Column(
-                             children: [
-                               TextUtil(text: "BOARDING TIME",size: 12,),
-                               TextUtil(text:data.boardingTime,size: 15,weight: true,color: Theme.of(context).primaryColor,),
-                             ],
-                           ),
-                           Column(
-                             children: [
-                               TextUtil(text: "SEAT",size: 12,),
-                               TextUtil(text:data.seat,size: 15,weight: true,color: Theme.of(context).primaryColor,),
-                             ],
-                           ),
-                           Column(
-                             children: [
-                               TextUtil(text: "CLASS",size: 12,),
-                               TextUtil(text:data.flightClass,size: 15,weight: true,color: Theme.of(context).primaryColor,),
-                             ],
-                           )
-                         ],
-                       )
-                     ],
+                         const   SizedBox(height: 20,),
+                         Row(
+                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                           children: [
+                             Column(
+                               children: [
+                                 TextUtil(text: "BOARDING TIME",size: 12,),
+                                 TextUtil(text:data.boardingTime,size: 15,weight: true,color: Theme.of(context).primaryColor,),
+                               ],
+                             ),
+                             Column(
+                               children: [
+                                 TextUtil(text: "SEAT",size: 12,),
+                                 TextUtil(text:data.seat,size: 15,weight: true,color: Theme.of(context).primaryColor,),
+                               ],
+                             ),
+                             Column(
+                               children: [
+                                 TextUtil(text: "CLASS",size: 12,),
+                                 TextUtil(text:data.flightClass,size: 15,weight: true,color: Theme.of(context).primaryColor,),
+                               ],
+                             )
+                           ],
+                         )
+                       ],
+                     ),
                    ),
                  ),
 
@@ -257,16 +260,25 @@ class DetailScreen extends StatelessWidget {
                           ))
                     ],
                   ),
-                  Center(
-                    child: TextUtil(text: "Boarding pass",color: Theme.of(context).primaryColor,weight: true,),
-                  ),
-                  Center(
-                    child: SizedBox(
-                      width: 280,
-                      height: 100,
-                      child: Image.asset("assets/barcode.webp",fit: BoxFit.fill,),
+                  ShowUpAnimation(
+                    delay: 300,
+                    child: Column(
+
+                      children: [
+
+                       Center(child: TextUtil(text: "Boarding pass",color: Theme.of(context).primaryColor,weight: true,)),
+                        Center(
+                          child: SizedBox(
+                            width: 280,
+                            height: 100,
+                            child: Image.asset("assets/barcode.webp",fit: BoxFit.fill,),
+                          ),
+                        ),
+
+                      ],
                     ),
-                  )
+                  ),
+
                 ],
               ),
 

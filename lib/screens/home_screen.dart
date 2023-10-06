@@ -1,9 +1,11 @@
 import 'package:flight_app_ui/screens/detail_screen.dart';
+import 'package:flight_app_ui/widgets/animated_route.dart';
 import 'package:flight_app_ui/widgets/show_up_animation.dart';
 import 'package:flight_app_ui/widgets/text.dart';
 import 'package:flutter/material.dart';
 import '../data/flight_data.dart';
 import '../widgets/flight_card.dart';
+import 'flightBooking/add_flight.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -69,7 +71,10 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).indicatorColor,
-        onPressed: () {  },
+        onPressed: () {
+          Navigator.of(context).push(MyCustomAnimatedRoute( enterWidget: AddFlightScreen(),));
+         // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AddFlightScreen()));
+        },
         child: Icon(Icons.add,size: 28,color: Theme.of(context).primaryColor,),
       ),
 
