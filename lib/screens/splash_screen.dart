@@ -11,17 +11,23 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen>  with SingleTickerProviderStateMixin{
-
+/// ANIMATION CONTROLLER
   late AnimationController _controller;
+  /// ANIMATION
   late Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
+    /// INITIALING THE CONTROLLER
     _controller = AnimationController(vsync: this,duration: const Duration(seconds: 2));
+    /// INITIALING THE ANIMATION
     _animation= CurvedAnimation(parent: _controller, curve: Curves.fastEaseInToSlowEaseOut);
+    /// STARTING THE ANIMATION
     _controller.forward();
+    /// TIMER FOR SPLASH DURATION
     Timer( const Duration(seconds: 3),(){
+      /// NAVIAGTING TO LOGIN SCREEN
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoginScreen()));
 
     }

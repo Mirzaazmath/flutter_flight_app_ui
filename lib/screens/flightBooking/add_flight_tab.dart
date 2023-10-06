@@ -1,18 +1,22 @@
 import 'package:flight_app_ui/screens/flightBooking/route_screen.dart';
+import 'package:flight_app_ui/screens/flightBooking/seat_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'checkout_screen.dart';
+import 'flight_screen.dart';
 
 
 
-class TabBarExample extends StatefulWidget {
-  const TabBarExample({super.key});
+
+class BookingTabBar extends StatefulWidget {
+  const BookingTabBar({super.key});
 
   @override
-  State<TabBarExample> createState() => _TabBarExampleState();
+  State<BookingTabBar> createState() => _BookingTabBarState();
 }
 
 
-class _TabBarExampleState extends State<TabBarExample>
+class _BookingTabBarState extends State<BookingTabBar>
     with TickerProviderStateMixin {
   late final TabController _tabController;
 
@@ -59,15 +63,9 @@ class _TabBarExampleState extends State<TabBarExample>
            controller: _tabController,
            children: const  <Widget>[
              RouteScreen(),
-             Center(
-               child: Text("It's rainy here"),
-             ),
-             Center(
-               child: Text("It's sunny here"),
-             ),
-             Center(
-               child: Text("It's sunny here"),
-             ),
+             FlightScreen(),
+             SeatScreen(),
+             CheckoutScreen(),
            ],
          ),
        ),

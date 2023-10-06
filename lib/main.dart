@@ -23,8 +23,9 @@ class MyApp extends StatelessWidget {
         //canvasColor: const Color(0xff597672),
 
       ),
-      home: AddFlightScreen(),
-    //  SplashScreen(),
+      /// SPLASH SCREEN
+      home: SplashScreen(),
+
     );
   }
 }

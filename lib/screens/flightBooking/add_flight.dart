@@ -47,9 +47,9 @@ class AddFlightScreen extends StatelessWidget {
                 borderRadius:const  BorderRadius.vertical(top: Radius.circular(30))
             ),
             alignment: Alignment.topCenter,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: TabBarExample(),
+            child:const Padding(
+              padding:  EdgeInsets.only(top: 10),
+              child: BookingTabBar(),
 
 
 

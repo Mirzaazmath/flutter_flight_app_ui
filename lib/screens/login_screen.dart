@@ -12,10 +12,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  /// TEXTEDITING CONTROLLERS FOR TEXTFEILDS
   TextEditingController _emailController=TextEditingController();
   TextEditingController _passwordController=TextEditingController();
 
-
+/// DISPOSE
   @override
   void dispose() {
     // TODO: implement dispose
